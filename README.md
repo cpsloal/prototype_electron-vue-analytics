@@ -13,7 +13,7 @@ Vue.use(analytics, {
 ```
 
 
-#### Build Setup
+## Build Setup
 
 ``` bash
 # install dependencies
@@ -35,7 +35,7 @@ npm run lint
 ```
 
 
-#### Screenshots
+## Screenshots
 ![Screenshot Landing page](/doc/screenshot-01.png)
 ![Screenshot Google Analytics](/doc/screenshot-02.png)
 ![Screenshot Devtools showing events fired](/doc/screenshot-03.png)
