@@ -11,13 +11,17 @@
 
       <div class="right-side">
         <div class="doc">
-          <div class="title">Getting Started</div>
+          <div class="title">Quick Dirty Prototypes</div>
           <p>
-            electron-vue comes packed with detailed documentation that covers everything from
-            internal configurations, using the project structure, building your application,
-            and so much more.
+            This is a quick dirty prototype app, to test various different things 
+            and should not be considered anywhere close to proper programming.  
+            Also do not use this in any form of real app/code.
           </p>
-          <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
+          <p><b>This sample contains a VueJS plugin "electron-vue-analytics", which is a wrapper around npm package "electron-ga".</b></p>
+          <p>Clicking on the links will send Google Analytics event.</p>  
+          <p>Clicking on the "Send Event to Google Analytics" will send event to Google Analytics.</p>
+          <button @click="sendEventToGA">Send Event to Google Analytics</button>
+          <br><br>
         </div>
         <div class="doc">
           <div class="title alt">Other Documentation</div>
@@ -38,6 +42,10 @@
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
+        this.$analytics.send('event', { ec: 'LinkClicked', ea: link, el: 'row', ev: Math.floor(1000000 * Math.random()) })
+      },
+      sendEventToGA () {
+        this.$analytics.send('event', { ec: 'Measure', ea: 'Clicked' + Math.floor(100000 * Math.random()), el: 'row', ev: Math.floor(100000 * Math.random()) })
       }
     }
   }
